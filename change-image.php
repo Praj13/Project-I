@@ -27,7 +27,7 @@ if ($query) {
 //Old pic deletion
 unlink($oldprofilepic);
 echo "<script>alert('Profile pic updated successfully');</script>";
-echo "<script type='text/javascript'> document.location ='index.php'; </script>";
+echo "<script type='text/javascript'> document.location ='admin_dashboard.php'; </script>";
 }else{
 echo "<script>alert('Something Went Wrong. Please try again');</script>";
  }

@@ -79,9 +79,7 @@
 </head>
 <script>
 function validateform(){
-let user = document.getElementById("e").value;
 let user2 = document.getElementById("f").value;
-let re =/@+/g;
 let pwLenght= /.{8,32}/;
 let specialCase=/[^A-za-z0-9]/;
 let lowerCase=/[a-z]/;
@@ -106,14 +104,14 @@ else{
 <body>
     <div class="container2" id="container2">
     <h3>Create Account</h3>
-    <form name="myform" action="register.php" method="POST" onsubmit= "return validateform()">
+    <form name="myform"  action="register.php" method="POST" >
         <label for="username">Username:</label><br>
         <input type="text" id="e" name="username" required><br><br>
 
         <label for="password">Password:</label><br>
         <input type="password" id="f" name="password" required><br><br>
 
-        <input type="submit" value="Create Account">
+        <input type="submit" onsubmit= "return validateform()" value="Create Account">
     </form>
     <p>Already have an account? <a href="login.php">Login here</a>.</p>
     </div>

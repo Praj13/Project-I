@@ -38,7 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         }
     } else {
-        echo "No photos found for the given album ID.";
+        echo '<div class="message success">No photos found for the given album.</div>';
+
     }
 }
 
@@ -49,6 +50,29 @@ $conn->close();
       </body>
 
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .message {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom:100px;
+            margin-top:50px;
+        }
+
+        .success {
+            background-color: #4CAF50;
+            color: white;
+            text-align:center;
+
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;

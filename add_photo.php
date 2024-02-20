@@ -105,13 +105,6 @@ $conn->close();
             }
         }
 
-
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-        }
-
         h2 {
             text-align: center;
             margin-bottom: 20px;
