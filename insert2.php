@@ -57,6 +57,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </body>
 <style>
+    body{
+    /* width: 100%; */
+            height: 400px;
+            background-color:#848871;
+            /* background-image: url('images/background8.jpg');  */
+       
+  }
       h2 {
             text-align: center;
             margin-bottom: 20px;

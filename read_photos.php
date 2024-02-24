@@ -54,7 +54,14 @@ $conn->close();
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-        }
+         
+    /* width: 100%; */
+            height: 400px;
+            background-color:#848871;
+            /* background-image: url('images/background8.jpg');  */
+       
+  }
+        
 
         .message {
             max-width: 600px;
@@ -106,7 +113,7 @@ $conn->close();
         }
 
         .photo-description {
-            color: #666;
+            color: darkgreen;
         }
 
         @media screen and (max-width: 600px) {

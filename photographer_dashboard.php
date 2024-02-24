@@ -20,7 +20,7 @@
 
         <input type="submit" value="Create Album">
     </form>
-    </div>
+    
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,11 +35,19 @@
     <a href="updateForm.php"><button>Update Album</button></a>
     <a href="deletealbumfom.php"><button>Delete Album</button></a>
     </div>
+    </div>
 </body>
 </html>
 
 </body>
 <style>
+  body{
+    /* width: 100%; */
+            height: 400px;
+            background-color:#848871;
+            /* background-image: url('images/background8.jpg');  */
+       
+  }
     /* Container */
     h2{
     text-align:center;
@@ -49,6 +57,7 @@
   margin: 0 auto;
   padding: 20px;
   text-align: center;
+ 
 }
 
 /* Form title */

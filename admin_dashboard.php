@@ -1,5 +1,13 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <style>
+   body{
+    /* width: 100%; */
+            height: 400px;
+            background-color:#848875;
+            /* background-image: url('images/background8.jpg');  */
+            color:white;
+       
+  }
     /* Font import */
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
@@ -12,7 +20,7 @@ table {
 
 /* Style for table header */
 th {
-  background-color: #f2f2f2;
+  /* background-color: #f2f2f2; */
   text-align: left;
   padding: 8px;
 }
@@ -25,7 +33,7 @@ td {
 
 /* Style for table row */
 tr:hover {
-  background-color: #f2f2f2;
+  background-color: black;
 }
 
 /* Style for main div */

@@ -80,6 +80,13 @@ echo "<script>alert('Something Went Wrong. Please try again');</script>";
   }
 </script>
 <style>
+   body{
+    /* width: 100%; */
+            height: 400px;
+            background-color:#848871;
+            /* background-image: url('images/background8.jpg');  */
+       
+  }
   /* Form container */
 .form-container {
   max-width: 600px;

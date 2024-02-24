@@ -31,7 +31,8 @@
   margin-top:100px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  background-color: #f9f9f9;
+  /* background-color: #f9f9f9; */
+  background-color:lightgreen;
 }
 
 /* Form title */
@@ -47,7 +48,7 @@ label {
 /* Form input fields */
 input[type="text"],
 input[type="password"] {
-  width: 100%;
+  width: 90%;
   padding: 10px;
   margin-bottom: 20px;
   border: 1px solid #ccc;

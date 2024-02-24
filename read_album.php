@@ -95,6 +95,13 @@
 </body>
 <style>
     /* Container */
+    body{
+    /* width: 100%; */
+            height: 400px;
+            background-color:#848871;
+            /* background-image: url('images/background8.jpg');  */
+       
+  }
 .container {
   max-width: 600px;
   margin: 0 auto;
@@ -164,7 +171,7 @@ input[type="submit"]:hover {
 
         /* Album description */
         .album-description {
-            color: #666;
+            color: darkgreen;
         }
 
         /* Clearfix for clearing float */
