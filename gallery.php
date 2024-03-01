@@ -158,6 +158,12 @@ remembers little things, long after you have forgotten everything." -Aaron Siski
             </div>
         </section>
     <!-- end of main  -->
+    <h2>More photos?</h2>
+    <div class="button-container">
+    <a href="open_photos.php"><button>View more photos</button></a>
+    </div>
+    
+
 
     <!-- footer  -->
     <footer class="footer">
@@ -184,4 +190,47 @@ remembers little things, long after you have forgotten everything." -Aaron Siski
 
    <script src="script.js"></script> 
 </body>
+<style>
+    /* Styling for the heading */
+h2 {
+    text-align: center; /* Center align the heading */
+    font-size: 24px; /* Adjust the font size */
+    margin-bottom: 20px; /* Add some bottom margin for spacing */
+}
+
+/* Styling for the button container */
+.button-container {
+    text-align: center; /* Center align the button container */
+}
+
+/* Styling for the button */
+.button-container button {
+    padding: 10px 20px; /* Add padding to the button */
+    font-size: 16px; /* Adjust the font size */
+    background-color: #007bff; /* Set background color */
+    color: #fff; /* Set text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border radius */
+    cursor: pointer; /* Add cursor pointer on hover */
+    transition: background-color 0.3s ease; /* Add smooth transition */
+    margin-bottom:50px;
+}
+
+/* Hover effect for the button */
+.button-container button:hover {
+    background-color: #0056b3; /* Change background color on hover */
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 20px; /* Adjust font size for smaller screens */
+    }
+
+    .button-container button {
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+}
+
+</style>
 </html>

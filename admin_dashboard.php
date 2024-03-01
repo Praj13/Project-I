@@ -33,7 +33,7 @@ td {
 
 /* Style for table row */
 tr:hover {
-  background-color: black;
+  background-color: #76663f;
 }
 
 /* Style for main div */

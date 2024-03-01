@@ -75,59 +75,156 @@ remembers little things, long after you have forgotten everything." -Aaron Siski
     <section class = "section-five">
         <div class = "container">
             <div class = "contact-top">
-                <h3>CONTACT ME</h3>
-                <p>Please feel free to contact me for anytype of PHOTOGRAPHY.</p>
-            </div>
-
-            <div class = "contact-middle">
-                <div>
-                    <span class = "contact-icon">
-                        <i class = "fas fa-map-signs"></i>
-                    </span>
-                    <span>Address</span>
-                    <p>Dahachowk, Chandragiri, Kathmandu</p>
-                </div>
-
-                <div>
-                    <span class = "contact-icon">
-                        <i class = "fas fa-phone"></i>
-                    </span>
-                    <span>Contact Number</span>
-                    <p>+977 9818762600</p>
-                </div>
-
-                <div>
-                    <span class = "contact-icon">
-                        <i class = "fas fa-paper-plane"></i>
-                    </span>
-                    <span>Email Address</span>
-                    <p>rajbansiprajwol@gmail.com</p>
-                </div>
-
-                <div>
-                    <span class = "contact-icon">
-                        <i class = "fas fa-globe"></i>
-                    </span>
-                    <span>Website</span>
-                    <p>www.prajphotos.com</p>
-                </div>
-            </div>
-
-            <div class = "contact-bottom">
-                <form class = "form" action="submit.php" method="POST">
-                    <input type = "text" placeholder="Your Name" name="name">
-                    <input type = "email" placeholder="Your Email" name="email">
-                    <input type = "text" placeholder="Purpose" name="purpose">
-                    <textarea rows = "9" placeholder="Message" name="message"></textarea>
-                    <input type = "submit" class = "btn" value = "Send Message">
-                </form>
-
-                <!-- Map -->
-                <div>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28258.01057507044!2d85.20930621653083!3d27.709525575569064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb23acb8cfbe3d%3A0xc9c8560e7e75d4f3!2sDahachok!5e0!3m2!1sen!2snp!4v1686321196309!5m2!1sen!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
+                <h3>Hire a photographer</h3>
+                <p>Hire any of the photographer below and they will be contacting you shortly. </p>
             </div>
         </div>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+   body{
+    /* width: 100%; */
+            height: 400px;
+            background-color:#848875;
+            /* background-image: url('images/background8.jpg');  */
+            color:white;
+       
+  }
+    /* Font import */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+button{
+    background-color: white;
+  color: black;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+button:hover{
+    background-color:lightgreen;
+}
+
+
+/* Style for the table */
+table {
+  width: 90%;
+  border-collapse: collapse;
+  margin-left: 70px;
+
+}
+
+/* Style for table header */
+th {
+  /* background-color: #f2f2f2; */
+  text-align: left;
+  padding: 8px;
+}
+
+/* Style for table data */
+td {
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+
+/* Style for table row */
+tr:hover {
+  background-color: #76663f;
+}
+
+/* Style for main div */
+.main {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Style for photographer details paragraph */
+.main p {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Style for material icons */
+.material-icons {
+  font-size: 18px;
+  cursor: pointer;
+  color: #007bff; /* You can change the color */
+}
+
+/* Style for small screens */
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+  
+  /* Hide table headers */
+  th {
+    display: none;
+  }
+  
+  /* Hide table row numbering */
+  td:first-child {
+    display: none;
+  }
+  
+  /* Adjust padding for table data */
+  td {
+    padding: 4px;
+  }
+}
+
+</style>
+<table class="table table-striped table-hover" border="2px">
+    <div class="main">
+        <p>Photographer's Details</p>
+    </div>
+    
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Profile Pic</th>
+                        <th>Name</th>                       
+                        <th>Email</th>
+                        <th>Mobile Number</th>
+                        <th>Joined Date</th>
+                        <th>Hire</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     <?php
+                    include "dbconnection.php";
+$ret=mysqli_query($con,"select * from tblusers");
+$cnt=1;
+$row=mysqli_num_rows($ret);
+if($row>0){
+while ($row=mysqli_fetch_array($ret)) {
+
+?>
+<!--Fetch the Records -->
+<tr>
+<td><?php echo $cnt;?></td>
+<td><img src="profilepics/<?php  echo $row['ProfilePic'];?>" width="100" height="100"></td>
+<td><?php  echo $row['FirstName'];?> <?php  echo $row['LastName'];?></td>
+<td><?php  echo $row['Email'];?></td>                        
+ <td><?php  echo $row['MobileNumber'];?></td>
+<td> <?php  echo $row['CreationDate'];?></td>
+<td>
+<a href="hire.php" onclick="return confirm('Hire this Photographer?');"><button>Hire</button></a>
+</td>
+</tr>
+<?php 
+$cnt=$cnt+1;
+} } else {?>
+<tr>
+<th style="text-align:center; color:red;" colspan="6">No Record Found</th>
+</tr>
+<?php } ?>                 
+                
+</tbody>
+</table>
     </section>  
     <!-- end of main  -->
 
