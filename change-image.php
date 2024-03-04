@@ -33,15 +33,18 @@ echo "<script>alert('Something Went Wrong. Please try again');</script>";
  }
 }
 }
-?><form  method="POST" enctype="multipart/form-data">
+?>
+<body>
+  <div class="container">
+  
+<form  method="POST" enctype="multipart/form-data">
 <?php
 $eid=$_GET['userid'];
 $ret=mysqli_query($con,"select * from tblusers where Email='$eid'");
 while ($row=mysqli_fetch_array($ret)) {
 ?>
 
-<h2>Update </h2>
-<p class="hint-text">Update your profile pic.</p>
+<h2>Update Photographer's profile picture.</h2>
 <input type="hidden" name="oldpic" value="<?php  echo $row['ProfilePic'];?>">
 <div class="form-group">
 <img src="profilepics/<?php  echo $row['ProfilePic'];?>" width="120" height="120">
@@ -57,3 +60,73 @@ while ($row=mysqli_fetch_array($ret)) {
 </div>
 <?php }?>
 </form>
+</div>
+</body>
+
+<style>
+  /* General styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+input[type="file"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-top: 5px;
+}
+
+span.error-message {
+  color: red;
+  font-size: 12px;
+}
+
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Responsive styling */
+@media screen and (max-width: 768px) {
+  .container {
+    margin: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  input[type="file"] {
+    padding: 8px;
+  }
+}
+
+
+</style>

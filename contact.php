@@ -80,14 +80,102 @@ remembers little things, long after you have forgotten everything." -Aaron Siski
             </div>
         </div>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<table class="table table-striped table-hover" border="2px">
+    <div class="main">
+        <p>Photographer's Details</p>
+    </div>
+    
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Profile Pic</th>
+                        <th>Name</th>                       
+                        <th>Email</th>
+                        <th>Mobile Number</th>
+                        <th>Joined Date</th>
+                        <th>Hire</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     <?php
+                    include "dbconnection.php";
+$ret=mysqli_query($con,"select * from tblusers");
+$cnt=1;
+$row=mysqli_num_rows($ret);
+if($row>0){
+while ($row=mysqli_fetch_array($ret)) {
+
+?>
+<!--Fetch the Records -->
+<tr>
+<td><?php echo $cnt;?></td>
+<td><img src="profilepics/<?php  echo $row['ProfilePic'];?>"  style="max-width: 100px; max-height: 100px;"></td>
+<td><?php  echo $row['FirstName'];?> <?php  echo $row['LastName'];?></td>
+<td><?php  echo $row['Email'];?></td>                        
+ <td><?php  echo $row['MobileNumber'];?></td>
+<td> <?php  echo $row['CreationDate'];?></td>
+<td>
+<a href="hire.php" onclick="return confirm('Hire this Photographer?');"><button>Hire</button></a>
+</td>
+</tr>
+<?php 
+$cnt=$cnt+1;
+} } else {?>
+<tr>
+<th style="text-align:center; color:red;" colspan="6">No Record Found</th>
+</tr>
+<?php } ?>                 
+                
+</tbody>
+</table>
+    </section>  
+    <!-- end of main  -->
+
+    <!-- footer  -->
+    <footer class="footer">
+        <div class="footer-container container">
+            <div>
+                <h2>PHOTOGRAPHY</h2>
+                <p>“What do we feel when we look at a good photograph? We just want to be there, right at the exact moment that photo taken!”
+                    - Mehmet Murat Ildan
+                </p>
+            </div>
+            <div>
+                <h3> Free subscription</h3>
+                <p>Subscribe for free to get some amazing pictures at no cost.</p>
+                <div class="subs">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" placeholder="Email address">
+                    <button type="sub">SUBSCRIBE</button>
+                </div>
+            </div>
+        </div>
+        <p>&copy; Copyright PRAJ. </p>
+    </footer>
+
+
+   <script src="script.js"></script> 
+</body>
 <style>
    body{
-    /* width: 100%; */
+    width: 100%;
             height: 400px;
             background-color:#848875;
             /* background-image: url('images/background8.jpg');  */
             color:white;
        
+  }
+  header{
+    width: 100%;
+  }
+  footer{
+    width:100%;
+  }
+  .section-five{
+    margin-top:45px;
+    margin-bottom:70px;
+    width:100%;
   }
     /* Font import */
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
@@ -177,80 +265,4 @@ tr:hover {
 }
 
 </style>
-<table class="table table-striped table-hover" border="2px">
-    <div class="main">
-        <p>Photographer's Details</p>
-    </div>
-    
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Profile Pic</th>
-                        <th>Name</th>                       
-                        <th>Email</th>
-                        <th>Mobile Number</th>
-                        <th>Joined Date</th>
-                        <th>Hire</th>
-                    </tr>
-                </thead>
-                <tbody>
-                     <?php
-                    include "dbconnection.php";
-$ret=mysqli_query($con,"select * from tblusers");
-$cnt=1;
-$row=mysqli_num_rows($ret);
-if($row>0){
-while ($row=mysqli_fetch_array($ret)) {
-
-?>
-<!--Fetch the Records -->
-<tr>
-<td><?php echo $cnt;?></td>
-<td><img src="profilepics/<?php  echo $row['ProfilePic'];?>" width="100" height="100"></td>
-<td><?php  echo $row['FirstName'];?> <?php  echo $row['LastName'];?></td>
-<td><?php  echo $row['Email'];?></td>                        
- <td><?php  echo $row['MobileNumber'];?></td>
-<td> <?php  echo $row['CreationDate'];?></td>
-<td>
-<a href="hire.php" onclick="return confirm('Hire this Photographer?');"><button>Hire</button></a>
-</td>
-</tr>
-<?php 
-$cnt=$cnt+1;
-} } else {?>
-<tr>
-<th style="text-align:center; color:red;" colspan="6">No Record Found</th>
-</tr>
-<?php } ?>                 
-                
-</tbody>
-</table>
-    </section>  
-    <!-- end of main  -->
-
-    <!-- footer  -->
-    <footer class="footer">
-        <div class="footer-container container">
-            <div>
-                <h2>PHOTOGRAPHY</h2>
-                <p>“What do we feel when we look at a good photograph? We just want to be there, right at the exact moment that photo taken!”
-                    - Mehmet Murat Ildan
-                </p>
-            </div>
-            <div>
-                <h3> Free subscription</h3>
-                <p>Subscribe for free to get some amazing pictures at no cost.</p>
-                <div class="subs">
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" id="email" placeholder="Email address">
-                    <button type="sub">SUBSCRIBE</button>
-                </div>
-            </div>
-        </div>
-        <p>&copy; Copyright PRAJ. </p>
-    </footer>
-
-
-   <script src="script.js"></script> 
-</body>
 </html>

@@ -44,7 +44,7 @@ while ($row=mysqli_fetch_array($ret)) {
     <td><?php  echo $row['Address'];?></td>
  
   </tr>
-  <div class="col-sm-7" align="right">
+  <div class="col-sm-7" >
 <a href="edit.php?editid=<?php echo htmlentities ($row['Email']);?>" class="btn btn-primary"><span>Edit User Details</span></a>
 </div>
 <?php 
