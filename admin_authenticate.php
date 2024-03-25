@@ -9,6 +9,10 @@ $dbname = "login";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
+?>
+<html>
+    <div class="login-status">
+        <?php
 
 // Check connection
 if ($conn->connect_error) {
@@ -37,3 +41,17 @@ if ($result->num_rows == 1) {
 // Close database connection
 $conn->close();
 ?>
+</div>
+
+<style>
+    /* CSS styles for login status */
+.login-status {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    color: red; /* Change the color as needed */
+    font-weight: bold;
+}
+
+</style>
+</html>

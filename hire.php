@@ -12,13 +12,30 @@
         </h3>
     </div>
 <div class = "contact-bottom">
-                <form class = "form" action="submit.php" method="POST">
-                    <input type = "text" placeholder="Your Name" name="name">
-                    <input type = "email" placeholder="Your Email" name="email">
-                    <input type = "text" placeholder="Purpose" name="purpose">
-                    <textarea rows = "9" placeholder="Message" name="message"></textarea>
+                <form class = "form" action="mail.php" method="POST" onsubmit="return validateForm()">
+                    <label for="name">Name</label><input type = "text" id="fname" placeholder="Your Name" name="name">
+                    <label for="email">Email</label><input type = "email" id="email" placeholder="Your Email" name="email">
+                    <label for="">Purpose</label><input type = "text" placeholder="Purpose" name="purpose">
+                    <label for="">Message</label><textarea rows = "9" placeholder="Message" name="message"></textarea>
                     <input type = "submit" class = "btn" value = "Send Message"  onclick="return ('Details provided successfully.');">
                 </form>
+                <script>
+                    function validateForm() {
+    var email = document.getElementById("email").value;
+    var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!regex.test(email)) {
+        alert("Please enter a valid email address");
+        return false;
+    }
+    var nameInput = document.getElementById("fname").value;
+  var namePattern = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/; // Regular expression for name validation
+  if (!namePattern.test(nameInput)) {
+    alert("Please enter a valid name");
+    return false; // Prevent form submission
+  }
+    return true;
+  }
+                </script>
 </body>
 <style>
  /* Global Styles */

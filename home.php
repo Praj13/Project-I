@@ -153,8 +153,10 @@ remembers little things, long after you have forgotten everything." -Aaron Siski
                 <p>Subscribe for free to get some amazing pictures at no cost.</p>
                 <div class="subs">
                     <i class="fas fa-envelope"></i>
-                    <input type="email" id="email" placeholder="Email address">
+                    <form action="mail2.php" method="post">
+                    <input type="email" id="email" name="email" placeholder="Email address">
                     <button type="sub">SUBSCRIBE</button>
+                    </form>
                 </div>
             </div>
         </div>

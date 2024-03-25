@@ -104,14 +104,14 @@ else{
 <body>
     <div class="container2" id="container2">
     <h3>Create Account</h3>
-    <form name="myform"  action="register.php" method="POST" >
+    <form name="myform"  action="register.php" method="POST" onsubmit= "return validateform()" >
         <label for="username">Username:</label><br>
         <input type="text" id="e" name="username" required><br><br>
 
         <label for="password">Password:</label><br>
         <input type="password" id="f" name="password" required><br><br>
 
-        <input type="submit" onsubmit= "return validateform()" value="Create Account">
+        <input type="submit" value="Create Account">
     </form>
     <p>Already have an account? <a href="login.php">Login here</a>.</p>
     </div>
@@ -131,8 +131,10 @@ else{
                 <p>Subscribe for free to get some amazing pictures at no cost.</p>
                 <div class="subs">
                     <i class="fas fa-envelope"></i>
-                    <input type="email" id="email" placeholder="Email address">
+                    <form action="mail2.php" method="post">
+                    <input type="email" id="email" name="email" placeholder="Email address">
                     <button type="sub">SUBSCRIBE</button>
+                    </form>
                 </div>
             </div>
         </div>
