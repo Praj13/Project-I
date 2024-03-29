@@ -94,7 +94,7 @@ remembers little things, long after you have forgotten everything." -Aaron Siski
                         <th>Email</th>
                         <th>Mobile Number</th>
                         <th>Joined Date</th>
-                        <th>Hire</th>
+                        <th>Hire or Explore</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -117,6 +117,8 @@ while ($row=mysqli_fetch_array($ret)) {
 <td> <?php  echo $row['CreationDate'];?></td>
 <td>
 <a href="hire.php" onclick="return confirm('Hire this Photographer?');"><button>Hire</button></a>
+
+<a href="explore.php" onclick="return confirm('Hire this Photographer?');"><button>Explore</button></a>
 </td>
 </tr>
 <?php 

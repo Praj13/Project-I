@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 <h2>Manage Albums</h2>
     <div class="button-container">
-    <a href="read_album.php"><button>Read Album</button></a>
+    <a href="read_album.php"><button>Read Album or Add photo</button></a>
     <a href="updateForm.php"><button>Update Album</button></a>
     <a href="deletealbumfom.php"><button>Delete Album</button></a>
     </div>
@@ -85,7 +85,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   background-color: #007bff;
   color: #fff;
   cursor: pointer;
+  text-decoration: none; /* Add this line to remove underline */
+  font-size:19px;
 }
+
 
 
 .button-container button:hover {

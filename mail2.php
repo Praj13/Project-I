@@ -46,7 +46,10 @@ $mail->addAttachment('https://www.pinterest.com/', 'optional_filename.pdf');
 
 // Send the email
 if ($mail->send()) {
-    echo '<script>alert("Subscription email has been sent to you successfully.")</script>';
+    echo '<script>';
+    echo 'alert("Subscription email has been sent to you successfully.");';
+    echo 'window.location.href = "home.php";'; // Redirect to contact.php
+    echo '</script>';
 } else {
     echo '<p class="error-message">Error: ' . $mail->ErrorInfo . '</p>';
 }
