@@ -6,7 +6,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "phpcrud";
+$dbname = "project";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -87,7 +87,7 @@ $conn->close();
         }
 
         .photo-container {
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
             padding: 20px;
             border: 1px solid #ccc;

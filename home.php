@@ -15,7 +15,7 @@
         <div class="nav-section">
             <div class="brand-and-navBtn ">
                 <span class="brand-name">
-                    PrajPhotos
+                    PhotoPalace
                 </span>
                 <span class="navBtn flex">
                     <i class="fas fa-bars"></i>
@@ -42,11 +42,10 @@
             <div class = "about-img flex">
                 <img src="images/camera5.jpg" alt="photography image" width="50%" height="40%">
             </div>
-            <h2> I'm Prajwol Rajbansi.</h2>
-            <h3> Photographer | Traveller</h3>
+            <h2>PHOTO PALACE</h2>
+            <h3>Hire or Get Hired </h3>
             <blockquote>
-                "Photography is a way of feeling, of touching, of loving. What you have caught on film is captured forever ... It
-remembers little things, long after you have forgotten everything." -Aaron Siskind
+            Nepal's online centralized platform for clients and photographers.
             </blockquote>
         </div>
             <div class="social-icons">
@@ -71,6 +70,7 @@ remembers little things, long after you have forgotten everything." -Aaron Siski
     <!-- end of header  -->
 
     <!-- main  -->
+    
     <section class="section-one">
         <div class="container">
             <div class="sec-one-left">

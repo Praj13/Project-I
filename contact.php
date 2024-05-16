@@ -118,7 +118,7 @@ while ($row=mysqli_fetch_array($ret)) {
 <td>
 <a href="hire.php" onclick="return confirm('Hire this Photographer?');"><button>Hire</button></a>
 
-<a href="explore.php" onclick="return confirm('Hire this Photographer?');"><button>Explore</button></a>
+<a href="explore.php"><button>Explore</button></a>
 </td>
 </tr>
 <?php 

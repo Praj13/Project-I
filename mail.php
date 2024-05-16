@@ -1,11 +1,38 @@
 <?php
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve form data
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $purpose = $_POST['purpose'];
+    $message = $_POST['message'];
 
-require 'phpMailer-master/src/exception.php';
-require 'phpMailer-master/src/PHPMailer.php';
-require 'phpMailer-master/src/smtp.php';
+    // Database connection
+    $servername = "localhost";
+    $username = "root"; // Replace with your MySQL username
+    $password = ""; // Replace with your MySQL password
+    $dbname = "project";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // SQL to insert data into clients table
+    $sql = "INSERT INTO clients VALUES ('$name', '$email', '$purpose', '$message')";
+
+    if ($conn->query($sql) === TRUE) {
+        // echo '<script>alert("Data inserted successfully.");</script>';
+
+require 'PHPMailer-master/src/Exception.php';
+require 'PHPMailer-master/src/PHPMailer.php';
+require 'PHPMailer-master/src/SMTP.php';
+
 
 
 // Create a new PHPMailer instance
@@ -66,6 +93,18 @@ if ($mail->send()) {
     // Display error message
     echo '<p class="error-message">Error: ' . $mail->ErrorInfo . '</p>';
 }
+    } else {
+        echo '<script>alert("Error: ' . $conn->error . '");</script>';
+    }
+
+   
+}
+
+
+
+
+ // Close database connection
+ $conn->close();
 
 ?>
 

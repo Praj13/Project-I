@@ -146,13 +146,33 @@ else{
 
    <style>
     /* Container */
-.container2 {
+/* .container2 { */
   /* max-width: 400px; */
-  margin: 0 auto;
+  /* margin: 0 auto;
   padding: 20px;
-  text-align: center;
-  background: #61892f;;
+  text-align: center; */
+  /* background: #61892f; */
+  
+.container2{
+    background: var(--dark);
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+    margin:10px;
 }
+/* /* .container2 > div{
+    margin: 40px 0;
+} */
+.container2{
+    color: var(--lightGreen);
+    /* font-size: 36px; */
+    /* font-weight: 500; */
+    /* letter-spacing: 7px; */
+}
+/* .container2{
+    opacity: 0.7;
+} */ */
+
 
 /* Form title */
 h3 {
@@ -167,7 +187,7 @@ label {
 /* Form input fields */
 input[type="text"],
 input[type="password"] {
-  width: 40%;
+  width: 30%;
   padding: 10px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
