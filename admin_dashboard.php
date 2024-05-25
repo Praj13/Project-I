@@ -128,3 +128,33 @@ $cnt=$cnt+1;
                 
 </tbody>
 </table>
+ <!-- Logout button -->
+ <div class="logout-container">
+            <button id="logout-button">Logout</button>
+        </div>
+        <script>
+   
+        document.getElementById("logout-button").addEventListener("click", function() {
+            window.location.href = "home.php";
+        });
+    
+</script>
+<style>
+    .logout-container {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .logout-container button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        background-color: #d9534f;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .logout-container button:hover {
+        background-color: #c9302c;
+    }
+</style>

@@ -90,10 +90,39 @@
         <input type="file" id="photo_file" name="photo_file" accept="image/*" required><br><br>
 
         <input type="submit" value="Add Photo">
+         <!-- Logout button -->
+         <div class="logout-container">
+            <button id="logout-button">Logout</button>
+        </div>
     </form>
     </div>
 </body>
+<script>
+   
+        document.getElementById("logout-button").addEventListener("click", function() {
+            window.location.href = "home.php";
+        });
+    
+</script>
 <style>
+   /* Logout button */
+   .logout-container {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .logout-container button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        background-color: #d9534f;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .logout-container button:hover {
+        background-color: #c9302c;
+    }
     /* Container */
     body{
     /* width: 100%; */

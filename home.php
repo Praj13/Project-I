@@ -75,17 +75,17 @@
         <div class="container">
             <div class="sec-one-left">
                 <div>
-                    <h3>
-                        Photography because of PASSION.
+                    <h3 style="font-size:17px;">
+                    The photograph is evident in nearly every aspect of modern life.
                     </h3>
-                    <p>I'm an IT student. I do photography because I love doing it. Its like my Hobby.I have no any degree on Photograhy, but I still manage clicking some good shots and put some basic editing.</p>
+                    <p>It is the art of capturing light with a camera, usually via a digital sensor or film, to create an image.</p>
                     <a href="gallery.php#gallery" class="btn-1">view all</a>
                 </div>
             </div>
             <div class="sec-one-right">
                 <div class="work-content">
-                    <h3>  How I captures some amazing images?</h3>
-                    <p></p>I just travel some random places , pull out my camera/phone, try my best to click some shots  with beautiful angle and put some editing efforts to it. When I feel like, ok now its perfect to be uploaded, I share it to my social media handles.
+                    <h3>  How to captures some amazing images?</h3>
+                    <p></p>Just travel some random places , pull out your camera/phone, try your best to click some shots  with beautiful angle and put some editing efforts to it. When you feel like, ok now its perfect to be uploaded, share it to your social media handles.
                     </p>
                     <a href="gallery.php#gallery" class="btn">view all</a>
                 </div>

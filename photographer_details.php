@@ -10,6 +10,10 @@ if(isset($_POST['submit']))
     $email=$_POST['email'];
     $add=$_POST['address'];
    $ppic=$_FILES["profilepic"]["name"];
+   $available_from = $_POST['available_from'];
+   $available_to = $_POST['available_to'];
+   $expertise=$_POST['photographyType'];
+   $fees=$_POST['charges'];
 // get the image extension
 $extension = substr($ppic,strlen($ppic)-4,strlen($ppic));
 // allowed extensions
@@ -26,7 +30,7 @@ $imgnewfile=md5($imgfile).time().$extension;
 // Code for move image into directory
 move_uploaded_file($_FILES["profilepic"]["tmp_name"],"profilepics/".$imgnewfile);
 // Query for data insertion
-$query=mysqli_query($con, "insert into tblusers(FirstName,LastName, MobileNumber, Email, Address,ProfilePic) value('$fname','$lname', '$contno', '$email', '$add','$imgnewfile' )");
+$query=mysqli_query($con, "insert into tblusers(FirstName,LastName, MobileNumber, Email, Address,ProfilePic,available_from,available_to,expertise,fees) value('$fname','$lname', '$contno', '$email', '$add','$imgnewfile','$available_from','$available_to','$expertise','$fees' )");
 if ($query) {
 echo "<script>alert('You have successfully inserted the data');</script>";
 echo "<script type='text/javascript'> document.location ='photographer_dashboard.php'; </script>";
@@ -35,44 +39,109 @@ echo "<script>alert('Something Went Wrong. Please try again');</script>";
 }}
 }
 ?>
-<form  method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+<!DOCTYPE html>
+<html lang="en">
 
+<body>
+    <div class="container">
+    <form  method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+            <div class="form-container">
+                <h2>Fill Data</h2>
+                <p class="hint-text">Fill below form.</p>
+                <div class="row">
+                    <div class="col">
+                        <label for="firstname">First Name:</label>
+                        <input type="text" class="form-control" id="fname" name="fname" placeholder="First Name" required="true">
+                    </div>
+                    <div class="col">
+                        <label for="lastname">Last Name:</label>
+                        <input type="text" class="form-control" id="lname" name="lname" placeholder="Last Name" required="true">
+                    </div>
+                </div>
+            </div>
 
-<div class="form-container">
-<h2>Fill Data</h2>
-<p class="hint-text">Fill below form.</p>
-<div class="row">
-<div class="col"><label for="firstname">First Name:</label><input type="text" class="form-control" id="fname" name="fname" placeholder="First Name" required="true"></div>
-<div class="col"><label for="">Last Name:</label><input type="text" class="form-control" id="lname" name="lname" placeholder="Last Name" required="true"></div>
-</div>        	
-</div>
+            <div class="form-container">
+                <label for="contactno">Mobile Number:</label>
+                <input type="number" class="form-control" name="contactno" placeholder="Enter your Mobile Number" required="true" maxlength="10" pattern="[0-9]+">
+            </div>
+            
+            <div class="form-container">
+                <label for="email">Email:</label>
+                <input type="email" id="email" class="form-control" name="email" placeholder="Enter your Email id" required="true">
+            </div>
+            
+            <div class="form-container">
+                <label for="address">Address:</label>
+                <textarea class="form-control" name="address" id="address" placeholder="Enter Your Address" required="true"></textarea>
+            </div>  
 
-<div class="form-container">
-  <label for="">Mobile Number:</label>
- <input type="number" class="form-control" name="contactno" placeholder="Enter your Mobile Number" required="true" maxlength="10" pattern="[0-9]+">
- </div>
-        
-<div class="form-container">
-  <label for="">Email:</label>
-<input type="email" id="email" class="form-control" name="email" placeholder="Enter your Email id" required="true">
-</div>
-		
-<div class="form-container">
-  <label for="">Address:</label>
-<textarea class="form-control" name="address" id="address" placeholder="Enter Your Address" required="true"></textarea>
-</div>  
+            <div class="form-container">
+                <label for="profilepic">Profile Picture:</label>
+                <input type="file" class="form-control" name="profilepic" required="true">
+                <span style="color:black; font-size:12px;">Only jpg / jpeg/ png /gif format allowed.</span>
+            </div>
+            <div class="form-container">
+            <label for="photographyType">Choose your expertise:</label>
+        <select id="photographyType" name="photographyType">
+            <option value="Portrait Photography">Portrait Photography</option>
+            <option value="Landscape Photograph">Landscape Photography</option>
+            <option value="Wildlife Photography">Wildlife Photography</option>
+            <option value="Street Photography">Street Photography</option>
+            <option value="Sports Photography">Sports Photography</option>
+            <option value="Event Photography">Event Photography</option>
+            <option value="Fashion Photography">Fashion Photography</option>
+            <option value="Architectural Photography">Architectural Photography</option>
+            <option value="Product Photography">Product Photography</option>
+            <option value="Food Photography">Food Photography</option>
+            <option value="Travel Photography">Travel Photography</option>
+        </select>
+            </div>
+            <div class="form-container">
+                <label for="available_from">Available From:</label>
+                <input type="date" id="available_from" name="available_from" required>
+            </div>
+            <div class="form-container">
+                <label for="available_to">Available To:</label>
+                <input type="date" id="available_to" name="available_to" required>
+            </div>
+            <div class="form-container">
+            <label for="charges">Charges(per hour) in NPR:</label>
+            <input type="number" id="charges" name="charges" placeholder="Charges" required>
+        </div>
 
-<div class="form-container">
-  <label for="">Profile Picture:</label>
-<input type="file" class="form-control" name="profilepic"  required="true">
-<span style="color:red; font-size:12px;">Only jpg / jpeg/ png /gif format allowed.</span>
-</div>      
-      
-<div class="form-container">
-<button type="submit" class="btn btn-success btn-lg btn-block" name="submit">Submit</button>
-</div>
-</form>
+            
+            <div class="form-container">
+                <button type="submit" class="btn btn-success btn-lg btn-block" name="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+</body>
+</html>
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Set initial minimum dates
+        var today = new Date().toISOString().split('T')[0];
+        document.getElementById("available_from").setAttribute('min', today);
+        document.getElementById("available_to").setAttribute('min', today);
+
+        // Add event listener for "available from" date change
+        document.getElementById("available_from").addEventListener('change', function() {
+            var availableFrom = new Date(this.value);
+            var availableTo = new Date(availableFrom);
+            availableTo.setDate(availableTo.getDate() + 1); // Add 1 day to ensure 24 hours difference
+
+            var minAvailableToDate = availableTo.toISOString().split('T')[0];
+            document.getElementById("available_to").setAttribute('min', minAvailableToDate);
+        });
+    });
+</script>
+
+<script>
+
   function validateForm() {
     var email = document.getElementById("email").value;
     var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
