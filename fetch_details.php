@@ -9,7 +9,7 @@ if (isset($_GET['email']) && !empty($_GET['email'])) {
     $query = "SELECT available_from, available_to, fees, expertise FROM tblusers WHERE Email = '$email'";
 
     // Execute the query
-    $result = mysqli_query($con, $query);
+    $result = mysqli_query($conn, $query);
 
     // Check if the query executed successfully
     if ($result) {
@@ -43,7 +43,7 @@ if (isset($_GET['email']) && !empty($_GET['email'])) {
     }
 
     // Close database connection
-    mysqli_close($con);
+    mysqli_close($conn);
 } else {
     echo "<div class='fetched-data-modal'><p class='fetched-data-error'>Email parameter is missing</p></div>";
 }

@@ -1,6 +1,8 @@
 <!-- //Databse Connection file -->
 <?php
+session_start();
 include('dbconnection.php');
+
 if(isset($_POST['submit']))
   {
   	//getting the post values
@@ -14,6 +16,7 @@ if(isset($_POST['submit']))
    $available_to = $_POST['available_to'];
    $expertise=$_POST['photographyType'];
    $fees=$_POST['charges'];
+   $username = $_SESSION['username'];
 // get the image extension
 $extension = substr($ppic,strlen($ppic)-4,strlen($ppic));
 // allowed extensions
@@ -30,7 +33,7 @@ $imgnewfile=md5($imgfile).time().$extension;
 // Code for move image into directory
 move_uploaded_file($_FILES["profilepic"]["tmp_name"],"profilepics/".$imgnewfile);
 // Query for data insertion
-$query=mysqli_query($con, "insert into tblusers(FirstName,LastName, MobileNumber, Email, Address,ProfilePic,available_from,available_to,expertise,fees) value('$fname','$lname', '$contno', '$email', '$add','$imgnewfile','$available_from','$available_to','$expertise','$fees' )");
+$query=mysqli_query($conn, "insert into tblusers(FirstName,LastName, MobileNumber, Email, Address,ProfilePic,available_from,available_to,expertise,fees, username) value('$fname','$lname', '$contno', '$email', '$add','$imgnewfile','$available_from','$available_to','$expertise','$fees','$username' )");
 if ($query) {
 echo "<script>alert('You have successfully inserted the data');</script>";
 echo "<script type='text/javascript'> document.location ='photographer_dashboard.php'; </script>";
@@ -68,6 +71,11 @@ echo "<script>alert('Something Went Wrong. Please try again');</script>";
             <div class="form-container">
                 <label for="email">Email:</label>
                 <input type="email" id="email" class="form-control" name="email" placeholder="Enter your Email id" required="true">
+                <label for="username">Your username</label>
+                <?php
+                echo'
+                <input type="text" name="username" value='.$_SESSION['username'].' id="" readonly>';
+                ?>
             </div>
             
             <div class="form-container">
@@ -113,6 +121,9 @@ echo "<script>alert('Something Went Wrong. Please try again');</script>";
             <div class="form-container">
                 <button type="submit" class="btn btn-success btn-lg btn-block" name="submit">Submit</button>
             </div>
+            <div class="logout-container">
+            <button id="logout-button">Back to home</button>
+        </div>
         </form>
     </div>
 
@@ -120,8 +131,32 @@ echo "<script>alert('Something Went Wrong. Please try again');</script>";
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
 </body>
+<style>
+   .logout-container {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .logout-container button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        background-color: #d9534f;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .logout-container button:hover {
+        background-color: #c9302c;
+    }
+</style>
 </html>
 <script>
+   
+        document.getElementById("logout-button").addEventListener("click", function() {
+            window.location.href = "home.php";
+        });
+    
     document.addEventListener('DOMContentLoaded', function() {
         // Set initial minimum dates
         var today = new Date().toISOString().split('T')[0];
@@ -176,6 +211,7 @@ echo "<script>alert('Something Went Wrong. Please try again');</script>";
   }
 </script>
 <style>
+  
    body{
     /* width: 100%; */
             height: 400px;

@@ -12,7 +12,7 @@ if(isset($_POST['submit']))
     $add=$_POST['address'];
 
 //Query for data updation
-$query=mysqli_query($con, "update  tblusers set FirstName='$fname',LastName='$lname', MobileNumber='$contno', Email='$email', Address='$add' where Email='$eid'");
+$query=mysqli_query($conn, "update  tblusers set FirstName='$fname',LastName='$lname', MobileNumber='$contno', Email='$email', Address='$add' where Email='$eid'");
 
 if ($query) {
 echo "<script>alert('You have successfully update the data');</script>";
@@ -27,7 +27,7 @@ echo "<script>alert('Something Went Wrong. Please try again');</script>";
 <form  method="POST">
  <?php
 $eid=$_GET['editid'];
-$ret=mysqli_query($con,"select * from tblusers where Email='$eid'");
+$ret=mysqli_query($conn,"select * from tblusers where Email='$eid'");
 while ($row=mysqli_fetch_array($ret)) {
 ?>
 

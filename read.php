@@ -7,7 +7,7 @@
 <?php
   include "dbconnection.php";
 $vid=$_GET['viewid'];
-$ret=mysqli_query($con,"select * from tblusers where Email='$vid' ");
+$ret=mysqli_query($conn,"select * from tblusers where Email='$vid' ");
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
 

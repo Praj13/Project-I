@@ -97,7 +97,7 @@ tr:hover {
                 <tbody>
                      <?php
                     include "dbconnection.php";
-$ret=mysqli_query($con,"select * from tblusers");
+$ret=mysqli_query($conn,"select * from tblusers");
 $cnt=1;
 $row=mysqli_num_rows($ret);
 if($row>0){

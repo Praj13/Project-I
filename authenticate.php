@@ -5,7 +5,7 @@ session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "project";
+$dbname = "project123";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -31,6 +31,8 @@ if ($result->num_rows == 1) {
 
     // Redirect to appropriate page based on user role
     if ($_SESSION['role'] == 'photographer') {
+        $_SESSION['photographer_loggedin'] = true;
+        $_SESSION['username'] = $username;
         header("Location: photographer_dashboard.php");
     } else if ($_SESSION['role'] == 'administrator') {
         header("Location: admin_dashboard.php");

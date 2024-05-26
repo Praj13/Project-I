@@ -7,7 +7,7 @@ if(isset($_GET['delid'])) {
     $ppicpath = "profilepics" . "/" . $profilepic;
 
     // Use prepared statement to prevent SQL injection
-    $stmt = $con->prepare("DELETE FROM tblusers WHERE Email = ?");
+    $stmt = $conn->prepare("DELETE FROM tblusers WHERE Email = ?");
     $stmt->bind_param("s", $rid);
     $stmt->execute();
     $stmt->close();

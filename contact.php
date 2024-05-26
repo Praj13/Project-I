@@ -215,7 +215,7 @@ remembers little things, long after you have forgotten everything." -Aaron Siski
             <tbody>
                 <?php
                 include "dbconnection.php";
-                $ret = mysqli_query($con, "select * from tblusers");
+                $ret = mysqli_query($conn, "select * from tblusers");
                 $cnt = 1;
                 $row = mysqli_num_rows($ret);
                 if ($row > 0) {
@@ -300,7 +300,7 @@ remembers little things, long after you have forgotten everything." -Aaron Siski
         }
 
         function fetchDetails(email) {
-            // Perform AJAX request to fetch details
+            // Performing AJAX request to fetch details
             var xhr = new XMLHttpRequest();
             xhr.open("GET", "fetch_details.php?email=" + email, true);
             xhr.onload = function() {

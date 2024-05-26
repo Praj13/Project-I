@@ -87,7 +87,7 @@
                     <h3>  How to captures some amazing images?</h3>
                     <p></p>Just travel some random places , pull out your camera/phone, try your best to click some shots  with beautiful angle and put some editing efforts to it. When you feel like, ok now its perfect to be uploaded, share it to your social media handles.
                     </p>
-                    <a href="gallery.php#gallery" class="btn">view all</a>
+                    <a href="gallery.php#gallery" class="btn">View all</a>
                 </div>
                 <div class="work-imgs">
                     <div class="work-img-1">

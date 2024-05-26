@@ -1,3 +1,14 @@
+<?php 
+session_start();
+include('dbconnection.php');
+$username = $_SESSION['username'];
+$sql1 = "SELECT * FROM tblusers WHERE username = '$username'";
+$result1 = mysqli_query($conn, $sql1);
+
+if (mysqli_num_rows($result1) == 0) {
+    header("Location: photographer_details.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

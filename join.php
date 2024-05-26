@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,7 +96,6 @@ lowerCase.test(user2) &&
 upperCase.test(user2) && 
 numberCase.test(user2) && 
 specialChar.test(user2))){
-    alert("Account Created");
 }
 else{
     alert("Invalid username or very weak password.");
@@ -104,7 +107,7 @@ else{
 <body>
     <div class="container2" id="container2">
     <h3>Create Account</h3>
-    <form name="myform"  action="register.php" method="POST" onsubmit= "return validateform()" >
+    <form action="register.php" method="POST">
         <label for="username">Username:</label><br>
         <input type="text" id="e" name="username" required><br><br>
 
